@@ -1,0 +1,24 @@
+digraph {
+	Products [label="Products
+(Product_ID, Name, Specification, Price, Availability, Category)"]
+	Customers [label="Customers
+(Customer_ID, First_Name, Last_Name, Email, Phone, Address)"]
+	Orders [label="Orders
+(Order_ID, Customer_ID, Order_Date, Status)"]
+	Order_Details [label="Order_Details
+(Order_Detail_ID, Order_ID, Product_ID, Quantity, Price)"]
+	Suppliers [label="Suppliers
+(Supplier_ID, Name, Contact)"]
+	Shipments [label="Shipments
+(Shipment_ID, Supplier_ID, Shipment_Date, Status)"]
+	Employees [label="Employees
+(Employee_ID, First_Name, Last_Name, Position)"]
+	Payments [label="Payments
+(Payment_ID, Order_ID, Payment_Date, Amount)"]
+	Orders -> Customers [label=Customer_ID]
+	Order_Details -> Orders [label=Order_ID]
+	Order_Details -> Products [label=Product_ID]
+	Shipments -> Suppliers [label=Supplier_ID]
+	Payments -> Orders [label=Order_ID]
+	dpi=300
+}

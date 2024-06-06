@@ -1,0 +1,37 @@
+1. Access PostgreSQL Console:
+psql -U your_username -d your_database
+
+2. create database name
+
+3. pull database
+psql -U your_username -d your_database_name -f path_to_your_sql_file.sql
+
+
+# włączenie bazy na roocie
+psql -U postgres -d postgres
+
+
+folder postgresa - /var/lib/pgsql
+
+\dn - wyswietl schematy
+
+
+Wyświetl tabele w schemacie schema1
+\dt schema1.*
+
+wyświetlenie schematu1 tabeli products na user1
+SELECT * FROM schema1.Products;
+
+
+
+TWORZENIE BACKUPU KONTENERA:
+              ID KONTENERA                      NAZWA_COMMITA
+docker commit b8613bc8ee43 my-centos-sudo-postgres-vim-passwd-database-created  # commit zmian
+                            ŚCIEŻKA GDZIE CHCESZ ZAPISAĆ PLUS NAZWA PLIKU Z ROZSZERZENIEM .TAR                                              NAZWA COMMITA        
+docker save -o E:\pobrane\studia\projektBazy\Projekt\docker_backup\my-centos-sudo-postgres-vim-passwd-database-created-backup.tar my-centos-sudo-postgres-vim-passwd-database-created-backup
+
+ODPALENIE BACKUPU W DOCKERZE:
+                            ŚCIEŻKA DO ZAPISANEGO BACKUPU
+docker load -i E:\pobrane\studia\projektBazy\Projekt\docker_backup\my-centos-sudo-postgres-vim-passwd-database-created-backup.tar
+
+docker run -it --name my-container2 -p 5432:5432 my-centos-sudo-postgres-vim-passwd-database-created-backup
