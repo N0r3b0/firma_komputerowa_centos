@@ -1,0 +1,1 @@
+# firma_komputerowa_centos
